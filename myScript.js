@@ -79,24 +79,3 @@ let userNumber2 = "";
 let operand;
 
 document.addEventListener("keydown", getKey);
-// document.addEventListener("keydown", (keyDetails) => {
-//     console.log(keyDetails);
-
-//     //Continue to accept numerals until an operand is pressed.
-    
-
-//     //Need to check to see if "userNumber1" has a numeric value, then I can have the page store the operand.
-//     if (userNumber1 != undefined){
-//         if (keyDetails.key == "+"){
-//             operand = "+";
-//         }
-//         if (Number.parseInt(keyDetails.key)){
-//             if (userNumber2 == undefined){
-//                 userNumber2 = keyDetails.key;
-//             }
-//             else {
-//                 userNumber2 += keyDetails.key;
-//             }
-//         }console.log(add(Number.parseInt(userNumber1), Number.parseInt(userNumber2)));
-//     }
-// });
