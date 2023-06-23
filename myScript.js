@@ -1,52 +1,74 @@
 //Arithmetic assignments (-=, +=, etc) will evaluate the right side of the equation first before using the operand left of the equation.
 function add(number1, number2){
     //The arguments are still strings, so they need to be converted to numbers for calculations.
-    if (total == undefined)
-    {
-        total = Number.parseInt(number1) + Number.parseInt(number2);
+        return total = Number.parseInt(number1) + Number.parseInt(number2);
     }
-    total = total + Number.parseInt(number1) + Number.parseInt(number2);
-return total;
-}
 
 function subtract(number1, number2){
-    if (total == undefined){
-        total = Number.parseInt(number1) - Number.parseInt(number2);
+        return total = number1 - number2;
     }
-    else {
-        total = total - Number.parseInt(number1) - Number.parseInt(number2);
-        console.log(total);
-    }
-return total;
-}
 
 function multiply(number1, number2){
-    if (total == undefined){
-        total = Number.parseInt(number1) * Number.parseInt(number2);
+        return total = Number.parseInt(number1) * Number.parseInt(number2);
     }
-    total = total * Number.parseInt(number1) * Number.parseInt(number2);
-return total;
-}
 
 function divide(number1, number2){
     //If the number is used as the divisor, check for zero.
-    if (number == 0){
-        return console.log("Cannot divide by zero!");
+    if (number2 == 0){
+        console.log("Cannot divide by zero!");
+        return display.textContent = "What the f#@#!";
+    }
+    else {
+        return total = number1 / number2;
     }
     //else divide some stored value by "number."
-return;
 }
 
 function getNumber(numberPressed){
-    console.log("Twas a number!")
-    //The Number.isInteger and Number.parseInt is used to deal with 0 being a falsy value.
-    if (Number.isInteger(Number.parseInt(userNumber1)) && operand){
+    if(Number.isInteger(Number.parseInt(userNumber1)) && operand){
         userNumber2 += numberPressed;
-        //Need to make the code determine whether to perform addition, subtraction, multiplication, or division.  
-        operate(operand, userNumber1, userNumber2); 
+        display.textContent= operate(operand, userNumber1, userNumber2); 
     }
     else {
         userNumber1 += numberPressed;
+    }
+    console.log(userNumber1, userNumber2);
+}
+
+function setOperand(pressedKey){
+    switch(pressedKey){
+        case "+":
+            operand = "+";
+            if (total || total == 0){
+                //Retain the result of the displayed value and the most recent value used in the eqaution.
+                userNumber1 = total;
+                userNumber2 = "";
+            };
+            break;
+        case "-":
+            operand = "-";
+            if (total || total == 0){
+                // displayNum = displayNum - userNumber2;
+                userNumber1 = total;
+                userNumber2 = "";
+            }
+            break;
+        case "*":
+            operand = "*";
+            if (total || total == 0){
+                userNumber1 = total;
+                userNumber2 = "";
+            };
+            break;
+        case "/":
+            operand = "/";
+            if (total || total == 0){
+                userNumber1 = total;
+                userNumber2 = "";
+            };
+            break;
+        default:
+            console.log("No matches.");
     }
 }
 
@@ -55,41 +77,22 @@ function getKey(keyDetails){
     if (Number.isInteger(Number.parseInt(keyDetails.key))){
         getNumber(keyDetails.key);
     }
-    //If keyDetails.key is not an integer and userNumber has a value, perform a switch case to determine what operand should be set to.
-    else if (userNumber1){
-        switch(keyDetails.key){
-            case "+":
-                operand = "+";
-                break;
-            case "-":
-                operand = "-";
-                break;
-            case "*":
-                operand = "*";
-                break;
-            case "/":
-                operand = "/";
-                break;
-            default:
-                console.log("No matches.");
-        }
+    //If keyDetails.key is not an integer and userNumber has a value, perform a switch case to determine what operand should be set to via the setOperand function.
+    else if (userNumber1 || userNumber1 == 0){
+        setOperand(keyDetails.key);
     }
 }
 
 function operate(operand, number1, number2){
     switch(operand){
         case "+":
-            add(number1, number2);
-            break;
+            return add(number1, number2);
         case "-":
-            subtract(number1, number2);
-            break;
+            return subtract(number1, number2);
         case "*":
-            multiply(number1, number2);
-            break;
+            return multiply(number1, number2);
         case "/":
-            divide(number1, number2);
-            break;
+            return divide(number1, number2);
         default:
             console.log("Error");
     }
@@ -100,6 +103,9 @@ function operate(operand, number1, number2){
 //Global variable that can be accessed by each of the functions and keeps track of the total total: "total"
 let total = null;
 
+//Track intermediate values.
+let displayNum = "";
+
 //Listen for keyboard inputs to retrieve and store numbers and operand. Initializing userNumber variables to "" to perform string concatenation with key values retreived from keydown event
 //, which are strings.
 let userNumber1 = "";
@@ -107,3 +113,6 @@ let userNumber2 = "";
 let operand = null;
 
 document.addEventListener("keydown", getKey);
+const display = document.createElement("p");
+display.textContent= displayNum;
+document.body.appendChild(display);
