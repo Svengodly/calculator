@@ -1,0 +1,52 @@
+body {
+    background: #ffcc99;
+    font-size: 30px;
+  }
+  
+  #outer {
+    border: black solid 10px;
+    width: 25%;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: gray;
+  }
+  
+  #display {
+  /*   border: blue solid; */
+    margin-top: 20px;
+    background: #ffffcc;
+    text-align: right;
+  }
+  
+  #clear {
+  /*   border: purple solid; */
+    display: flex;
+    gap: 10px;
+  }
+  
+  #clear button {
+    flex: 1;
+    font-size: 20px;
+  }
+  
+  #numpad {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .number {
+    display: flex;
+  /*   justify-content: space-around; */
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+  
+  .number button {
+    flex: 1;
+    height: 40px;
+  /*   width: 50px; */
+  }
+    

@@ -2,8 +2,48 @@
 <html lang="en-US">
 <head>
     <title>My Calculator</title>
+    <meta charset="utf-8">
 </head>
 <body>
+    <div id="outer">
+        <!--   Use div tag with "outer" id as a flex container. Nest the display and buttons inside. -->
+          
+        <!--   Start of display flex item -->
+          <div id="display">0</div>
+        <!--   Start flex item of the "outer" div. This contains the C and CE buttons, which clear all input and clears the most recent entry respectively. Note: "numberDisplay" is also its own container-->
+          <div id="clear">
+            <button>C</button>
+            <button>CE</button>
+          </div>
+        <!--   Start of flex item "numpad" that contains several items which are containers with the class of "number." -->
+          <div id="numpad">
+        <!--     May rename the class later, as the "number" divs contain operands as well -->
+            <div class="number">
+              <button>7</button>
+              <button>8</button>
+              <button>9</button>
+              <button>/</button>
+            </div>
+            <div class="number">
+              <button>4</button>
+              <button>5</button>
+              <button>6</button>
+              <button>*</button>
+            </div>
+            <div class="number">
+              <button>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>-</button>
+            </div>
+            <div class="number">
+              <button>0</button>
+              <button>.</button>
+              <button>=</button>
+              <button>+</button>
+            </div>
+          </div>
+        </div>
     <script src="myScript.js"></script>
 </body>
 </html>
