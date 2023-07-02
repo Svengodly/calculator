@@ -24,13 +24,13 @@ function divide(number1, number2){
     //else divide some stored value by "number."
 }
 
-function getNumber(numberPressed){
+function getNumber(numberSelected){
     if(Number.isInteger(Number.parseInt(userNumber1)) && operand){
-        userNumber2 += numberPressed;
+        userNumber2 += numberSelected;
         display.textContent= operate(operand, userNumber1, userNumber2); 
     }
     else {
-        userNumber1 += numberPressed;
+        userNumber1 += numberSelected;
     }
     console.log(userNumber1, userNumber2);
 }
@@ -97,14 +97,29 @@ function operate(operand, number1, number2){
             console.log("Error");
     }
 }
+
+//Update display when a button is clicked
+function updateDisplay(buttonClicked){
+    console.log(buttonClicked.target.innerText);
+    if (displayNum == 0 && buttonClicked.target.innerText == 0){
+        return;
+    }
+    else if (Number.isInteger(Number.parseInt(buttonClicked.target.innerText))){
+        //A calculator's display will show the number "0" on startup and will not change if the number "0" is selected on the keypad.
+        //This checks to see if the display number is "0." If it is, set the display to whatever number is clicked. 
+        displayNum == 0 ? displayNum = buttonClicked.target.innerText : displayNum += buttonClicked.target.innerText;
+        return display.textContent = displayNum;
+    }
+}
+
 //Going to need a function that resets the values provided by the user.
 // function clear()
 
 //Global variable that can be accessed by each of the functions and keeps track of the total total: "total"
-let total = null;
+let total = "0";
 
 //Track intermediate values.
-let displayNum = "";
+let displayNum = "0";
 
 //Listen for keyboard inputs to retrieve and store numbers and operand. Initializing userNumber variables to "" to perform string concatenation with key values retreived from keydown event
 //, which are strings.
@@ -113,6 +128,14 @@ let userNumber2 = "";
 let operand = null;
 
 document.addEventListener("keydown", getKey);
-const display = document.createElement("p");
-display.textContent= displayNum;
-document.body.appendChild(display);
+// const display = document.createElement("p");
+// const display = document.querySelector("#display").textContent = total;
+display.textContent = displayNum;
+// document.body.appendChild(display);
+
+// Add event listeners to all buttons
+const numberButtons = document.querySelectorAll(".number button");
+
+numberButtons.forEach((button) => {
+    button.addEventListener("click", updateDisplay);
+})
