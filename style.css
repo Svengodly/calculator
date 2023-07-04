@@ -5,7 +5,7 @@ body {
   
   #outer {
     border: black solid 10px;
-    width: 25%;
+    max-width: 300px;
     margin: 0 auto;
     padding: 15px;
     display: flex;
@@ -15,16 +15,18 @@ body {
   }
   
   #display {
-  /*   border: blue solid; */
+    font-size: 25px;
     margin-top: 20px;
-    padding-right: 5px;
+    padding-right: 15px;
     min-height: 60px;
     background: #ffffcc;
     text-align: right;
+    right: 5px;
+    /* Hides numbers that break out of the display */
+    overflow: hidden;
   }
   
   #clear {
-  /*   border: purple solid; */
     display: flex;
     gap: 10px;
   }
@@ -41,7 +43,6 @@ body {
   
   .number {
     display: flex;
-  /*   justify-content: space-around; */
     margin-bottom: 10px;
     gap: 10px;
   }
@@ -50,6 +51,4 @@ body {
     flex: 1;
     height: 50px;
     font-size: 30px;
-  /*   width: 50px; */
   }
-    
