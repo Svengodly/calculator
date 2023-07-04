@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title>My Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="utf-8">
+  <title>My Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
 </head>
 <body>
-    <div id="outer">
-        <!--   Use div tag with "outer" id as a flex container. Nest the display and buttons inside. -->
-          
-        <!--   Start of display flex item -->
-          <div id="display"></div>
-        <!--   Start flex item of the "outer" div. This contains the C and CE buttons, which clear all input and clears the most recent entry respectively. Note: "numberDisplay" is also its own container-->
-          <div id="clear">
-            <button type="button">C</button>
-            <button type="button">CE</button>
-          </div>
-        <!--   Start of flex item "numpad" that contains several items which are containers with the class of "number." -->
-          <div id="numpad">
-        <!--     May rename the class later, as the "number" divs contain operands as well -->
-            <div class="number">
-              <button type="button">7</button>
-              <button type="button">8</button>
-              <button type="button">9</button>
-              <button type="button">/</button>
-            </div>
-            <div class="number">
-              <button type="button">4</button>
-              <button type="button">5</button>
-              <button type="button">6</button>
-              <button type="button">*</button>
-            </div>
-            <div class="number">
-              <button type="button">1</button>
-              <button type="button">2</button>
-              <button type="button">3</button>
-              <button type="button">-</button>
-            </div>
-            <div class="number">
-              <button type="button">0</button>
-              <button type="button">.</button>
-              <button type="button">=</button>
-              <button type="button">+</button>
-            </div>
-          </div>
+  <div id="outer">
+    <!--   Use div tag with "outer" id as a flex container. Nest the display and buttons inside. -->
+      
+    <!--   Start of display flex item -->
+      <div id="display"></div>
+    <!--   Start flex item of the "outer" div. This contains the C and CE buttons, which clear all input and clears the most recent entry respectively. Note: "numberDisplay" is also its own container-->
+      <div id="clear">
+        <button type="button">C</button>
+        <button type="button">CE</button>
+      </div>
+    <!--   Start of flex item "numpad" that contains several items which are containers with the class of "number." -->
+      <div id="numpad">
+    <!--     May rename the class later, as the "number" divs contain operands as well -->
+        <div class="number">
+          <button type="button">7</button>
+          <button type="button">8</button>
+          <button type="button">9</button>
+          <button type="button">/</button>
         </div>
-    <script src="myScript.js"></script>
+        <div class="number">
+          <button type="button">4</button>
+          <button type="button">5</button>
+          <button type="button">6</button>
+          <button type="button">*</button>
+        </div>
+        <div class="number">
+          <button type="button">1</button>
+          <button type="button">2</button>
+          <button type="button">3</button>
+          <button type="button">-</button>
+        </div>
+        <div class="number">
+          <button type="button">0</button>
+          <button type="button">.</button>
+          <button type="button">=</button>
+          <button type="button">+</button>
+        </div>
+      </div>
+  </div>
+<script src="myScript.js"></script>
 </body>
 </html>
