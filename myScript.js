@@ -157,6 +157,35 @@ function clear(){
     dotButton.removeAttribute("disabled");
 }
 
+function clearNumber(){
+    if (total && nextNumber){
+        nextNumber = nextNumber.substring(0, nextNumber.length - 1);
+        if (!nextNumber.includes(".")){
+            dotButton.removeAttribute("disabled");
+        }
+        nextNumber == "" ? displayNum = "" : displayNum = nextNumber;
+        display.textContent = displayNum;
+    }
+    else if (!total && firstNumber){
+        firstNumber = firstNumber.substring(0, firstNumber.length - 1);
+        //Reneable '.' if it is removed.
+        if (!firstNumber.includes(".")){
+            dotButton.removeAttribute("disabled");
+        }
+        firstNumber == "" ? displayNum = "" : displayNum = firstNumber;
+        display.textContent = displayNum;
+    }
+    else if (nextNumber){
+        nextNumber = nextNumber.substring(0, nextNumber.length - 1);
+        if (!nextNumber.includes(".")){
+            dotButton.removeAttribute("disabled");
+        }
+        nextNumber == "" ? displayNum = "" : displayNum = nextNumber;
+        display.textContent = displayNum;
+    }
+    operand = "";
+}
+
 //Variable that keeps track of the total.
 let total = null;
 
@@ -182,6 +211,8 @@ const numberButtons = document.querySelectorAll(".number button");
 
 //Add event listener to the 'C' button.
 document.querySelector("#clear button").addEventListener("click", clear);
+
+document.querySelector("#clear button").nextElementSibling.addEventListener("click", clearNumber);
 
 numberButtons.forEach((button) => {
     button.addEventListener("click", updateDisplay);
