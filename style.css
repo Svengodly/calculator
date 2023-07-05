@@ -1,12 +1,16 @@
 body {
     background: #ffcc99;
     font-size: 50px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   #outer {
     border: black solid 10px;
-    max-width: 300px;
-    margin: 0 auto;
+    flex-basis: 300px;
+    /* margin: 0 auto; */
     padding: 15px;
     display: flex;
     flex-direction: column;
